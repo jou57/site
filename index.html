@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffcce6 25%, #ff99cc 50%, #ff66b2 75%, #ff3399 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 40px;
+            padding: 50px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.4);
+            text-align: center;
+            border: 3px solid #ffb6c1;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Secțiunea de scuze */
+        .apology-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            color: #ff1493;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.3);
+        }
+
+        .pink-heart {
+            width: 280px;
+            height: 280px;
+            margin: 30px auto;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(255, 20, 147, 0.6));
+        }
+
+        .pink-heart svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .apology-text {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.9;
+            margin: 30px 0;
+        }
+
+        .apology-text p {
+            margin-bottom: 15px;
+        }
+
+        .enter-btn {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        .enter-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Secțiunea de întrebare */
+        .question-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8em;
+            color: #ff1493;
+            margin-bottom: 30px;
+        }
+
+        .pink-rose {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .pink-rose svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 10px 30px rgba(255, 105, 180, 0.5));
+            animation: roseSway 3s ease-in-out infinite;
+        }
+
+        @keyframes roseSway {
+
+            0%,
+            100% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 18px 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 100;
+        }
+
+        .btn-yes {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        .btn-no {
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
+        }
+
+        .btn-no:hover {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+        }
+
+        /* Pisica trista care plange */
+        .angry-cat-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            text-align: center;
+            border: 4px solid #ff1493;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .angry-cat-popup.show {
+            display: block;
+            animation: popupBounce 0.5s ease;
+        }
+
+        @keyframes popupBounce {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .angry-cat-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .angry-cat-text {
+            font-size: 1.5em;
+            color: #ff1493;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .sike-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(45deg, #ff1493, #ff0066);
+            color: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.5);
+            z-index: 1001;
+            display: none;
+            text-align: center;
+        }
+
+        .sike-popup.show {
+            display: block;
+            animation: sikeShake 0.6s ease;
+        }
+
+        @keyframes sikeShake {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+
+            25% {
+                transform: translate(-50%, -50%) rotate(-5deg) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(5deg) scale(1);
+            }
+
+            75% {
+                transform: translate(-50%, -50%) rotate(-3deg) scale(1.05);
+            }
+        }
+
+        .sike-text {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .sike-subtext {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        /* Secțiunea cu pisici */
+        .cats-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #ff1493;
+            margin-bottom: 20px;
+        }
+
+        .cats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .cat-box {
+            width: 200px;
+            height: 200px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+            border: 4px solid #ffb6c1;
+            background: #ffe4e1;
+            animation: catBounce 1.2s ease-in-out infinite;
+        }
+
+        .cat-box:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .cat-box:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes catBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .cat-gif {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .continue-btn {
+            background: linear-gradient(45deg, #da70d6, #ff1493);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(218, 112, 214, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .continue-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(218, 112, 214, 0.6);
+        }
+
+        /* Chestionar */
+        .quiz-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            background: linear-gradient(135deg, #ffe4e1, #fff0f5);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: left;
+            border: 2px solid #ffb6c1;
+        }
+
+        .quiz-question h3 {
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 2px solid #ffb6c1;
+            padding: 14px 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .quiz-option:hover {
+            border-color: #ff1493;
+            background: #fff0f5;
+            transform: scale(1.02);
+        }
+
+        .quiz-option.selected {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        .submit-quiz-btn {
+            background: linear-gradient(45deg, #ff1493, #ff0066);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+            position: relative;
+            z-index: 100;
+        }
+
+        .submit-quiz-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        /* Mesaj final - simplificat */
+        .final-message {
+            display: none;
+        }
+
+        .final-message h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #ff1493;
+            margin-bottom: 20px;
+        }
+
+        .final-message>p {
+            color: #333;
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .final-love {
+            margin-top: 30px;
+            font-size: 1.8em;
+            color: #ff1493;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Contract de iubire */
+        .contract-section {
+            display: none;
+        }
+
+        .contract-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .contract-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 20px;
+        }
+
+        .love-counter {
+            background: linear-gradient(135deg, #ffe4e1, #fff0f5);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 3px solid #ffb6c1;
+        }
+
+        .counter-title {
+            font-size: 1.3em;
+            color: #ff69b4;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .counter-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .counter-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid #ffb6c1;
+            min-width: 80px;
+        }
+
+        .counter-number {
+            display: block;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #ff1493;
+        }
+
+        .counter-label {
+            font-size: 0.9em;
+            color: #ff69b4;
+        }
+
+        .kiss-counter {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .kiss-emoji {
+            font-size: 1.5em;
+        }
+
+        .kiss-number {
+            font-weight: 700;
+        }
+
+        .contract-box {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 3px solid #ffb6c1;
+            text-align: left;
+        }
+
+        .contract-box h3 {
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .contract-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            cursor: default;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .contract-checkbox input {
+            display: none;
+        }
+
+        .checkmark {
+            font-size: 1.5em;
+            color: #ff1493;
+        }
+
+        .promise-text {
+            flex: 1;
+        }
+
+        .sign-contract-btn {
+            background: linear-gradient(45deg, #ff1493, #ff0066);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+            animation: pulseButton 2s ease-in-out infinite;
+            position: relative;
+            z-index: 100;
+        }
+
+        @keyframes pulseButton {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .sign-contract-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        /* Inimi plutind */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        /* Particule la click */
+        .click-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: particleExplode 1s ease-out forwards;
+        }
+
+        @keyframes particleExplode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Efect mașină de scris */
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 3px solid #ff1493;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #ff1493
+            }
+        }
+
+        /* Text cu glitter */
+        .glitter-text {
+            background: linear-gradient(90deg, #ff1493, #ffb6c1, #ff69b4, #ff1493);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glitter 3s linear infinite;
+        }
+
+        @keyframes glitter {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Text neon */
+        .neon-text {
+            text-shadow:
+                0 0 5px #ff1493,
+                0 0 10px #ff1493,
+                0 0 20px #ff1493,
+                0 0 40px #ff69b4,
+                0 0 80px #ff69b4;
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes neonPulse {
+
+            0%,
+            100% {
+                text-shadow:
+                    0 0 5px #ff1493,
+                    0 0 10px #ff1493,
+                    0 0 20px #ff1493,
+                    0 0 40px #ff69b4,
+                    0 0 80px #ff69b4;
+            }
+
+            50% {
+                text-shadow:
+                    0 0 10px #ff1493,
+                    0 0 20px #ff1493,
+                    0 0 40px #ff1493,
+                    0 0 80px #ff69b4,
+                    0 0 120px #ff69b4;
+            }
+        }
+
+        /* Butoane magnetice */
+        .magnetic-btn {
+            transition: transform 0.3s ease;
+        }
+
+        /* Tilt 3D pentru carduri */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
+        }
+
+        /* Efect pagină care se întoarce */
+        .page-flip {
+            transform-origin: left center;
+            animation: pageFlip 0.8s ease-in-out;
+        }
+
+        @keyframes pageFlip {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            50% {
+                transform: rotateY(-90deg);
+            }
+
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+
+        /* Zoom blur */
+        .zoom-blur {
+            animation: zoomBlur 0.6s ease-out;
+        }
+
+        @keyframes zoomBlur {
+            0% {
+                transform: scale(0.8);
+                filter: blur(10px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        /* Curcubeu animat în background */
+        .rainbow-bg {
+            background: linear-gradient(45deg,
+                    #ff0000,
+                    #ff7f00,
+                    #ffff00,
+                    #00ff00,
+                    #0000ff,
+                    #4b0082,
+                    #9400d3,
+                    #ff0000);
+            background-size: 400% 400%;
+            animation: rainbow 8s ease infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Unde în background */
+        .wave-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 105, 180, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 182, 193, 0.3) 0%, transparent 50%);
+            animation: waveMove 10s ease-in-out infinite;
+        }
+
+        @keyframes waveMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+        }
+
+        /* Stele sclipitoare */
+        .twinkling-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Efect glitch pentru popup */
+        .glitch-effect {
+            animation: glitch 0.3s ease-in-out;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+
+            20% {
+                transform: translate(-5px, 5px);
+                filter: hue-rotate(90deg);
+            }
+
+            40% {
+                transform: translate(5px, -5px);
+                filter: hue-rotate(180deg);
+            }
+
+            60% {
+                transform: translate(-5px, -5px);
+                filter: hue-rotate(270deg);
+            }
+
+            80% {
+                transform: translate(5px, 5px);
+                filter: hue-rotate(360deg);
+            }
+
+            100% {
+                transform: translate(0);
+                filter: hue-rotate(0deg);
+            }
+        }
+
+        /* Confetti îmbunătățit */
+        .confetti-improved {
+            position: fixed;
+            top: -10px;
+            animation: confettiFall linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg) rotateX(0deg) rotateY(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) rotateX(360deg) rotateY(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Butonul NU care fuge */
+        .runaway-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* Efect parallax pentru inimă */
+        .parallax-heart {
+            animation: parallaxHeart 3s ease-in-out infinite;
+        }
+
+        @keyframes parallaxHeart {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            25% {
+                transform: translateY(-20px) scale(1.05);
+            }
+
+            50% {
+                transform: translateY(0) scale(1);
+            }
+
+            75% {
+                transform: translateY(20px) scale(0.95);
+            }
+        }
+
+        /* Secțiunea Surpriză */
+        .surprise-section {
+            display: none;
+        }
+
+        .surprise-section.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .surprise-title-main {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .surprise-title-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #ff0066;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(255, 0, 102, 0.3);
+            animation: nameGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes nameGlow {
+
+            0%,
+            100% {
+                text-shadow: 3px 3px 6px rgba(255, 0, 102, 0.3);
+            }
+
+            50% {
+                text-shadow: 3px 3px 20px rgba(255, 0, 102, 0.6), 0 0 40px rgba(255, 20, 147, 0.4);
+            }
+        }
+
+        .click-ribbon-text {
+            font-size: 1.8em;
+            color: #ff1493;
+            font-weight: 700;
+            margin-bottom: 30px;
+            animation: textBounce 1s ease-in-out infinite;
+        }
+
+        @keyframes textBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .big-ribbon {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4, #ff1493, #ff0066);
+            background-size: 300% 300%;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.6);
+            animation: ribbonGradient 3s ease infinite, ribbonShake 2s ease-in-out infinite;
+        }
+
+        @keyframes ribbonGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes ribbonShake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-3deg);
+            }
+
+            75% {
+                transform: rotate(3deg);
+            }
+        }
+
+        .big-ribbon:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 30px 80px rgba(255, 20, 147, 0.8);
+        }
+
+        .big-ribbon-icon {
+            font-size: 6em;
+        }
+
+        .surprise-details {
+            background: linear-gradient(135deg, #ffe4e1, #fff0f5);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 25px 0;
+            border: 3px solid #ffb6c1;
+            display: none;
+        }
+
+        .surprise-details.show {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            padding: 18px;
+            background: white;
+            border-radius: 15px;
+            border: 2px solid #ffb6c1;
+        }
+
+        .detail-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .detail-content {
+            text-align: left;
+        }
+
+        .detail-label {
+            color: #ff69b4;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            top: -10px;
+            animation: fall linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Responsivitate */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 30px;
+            }
+
+            .apology-content h1 {
+                font-size: 2.2em;
+            }
+
+            .question-section h2,
+            .cats-section h2 {
+                font-size: 2.2em;
+            }
+
+            .surprise-title-main {
+                font-size: 1.8em;
+            }
+
+            .surprise-title-name {
+                font-size: 2.2em;
+            }
+
+            .click-ribbon-text {
+                font-size: 1.4em;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 80%;
+            }
+
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+
+            .pink-heart {
+                width: 220px;
+                height: 220px;
+            }
+
+            .pink-rose {
+                width: 160px;
+                height: 160px;
+            }
+
+            .big-ribbon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .big-ribbon-icon {
+                font-size: 4em;
+            }
+
+            .apology-text {
+                font-size: 1.1em;
+            }
+        }
+
+        /* Design special pentru telefoane - aspect ratio vertical */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                min-height: 100vh;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .container {
+                padding: 25px 15px;
+                max-width: 100%;
+                width: 95%;
+                min-height: 90vh;
+                border-radius: 25px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .pink-heart {
+                width: 160px;
+                height: 160px;
+            }
+
+            .apology-content h1 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            .apology-text {
+                font-size: 1em;
+                line-height: 1.7;
+                margin: 20px 0;
+            }
+
+            .apology-text p {
+                margin-bottom: 12px;
+            }
+
+            .enter-btn {
+                padding: 15px 40px;
+                font-size: 1.1em;
+                margin-top: 15px;
+            }
+
+            .question-section h2 {
+                font-size: 1.9em;
+                margin-bottom: 20px;
+            }
+
+            .pink-rose {
+                width: 140px;
+                height: 140px;
+            }
+
+            .cats-container {
+                gap: 15px;
+            }
+
+            .cat-box {
+                width: 140px;
+                height: 140px;
+            }
+
+            .quiz-section h2 {
+                font-size: 1.9em;
+            }
+
+            .quiz-question {
+                padding: 18px;
+                margin-bottom: 15px;
+            }
+
+            .quiz-question h3 {
+                font-size: 1em;
+            }
+
+            .big-ribbon {
+                width: 130px;
+                height: 130px;
+            }
+
+            .big-ribbon-icon {
+                font-size: 3.5em;
+            }
+
+            .surprise-title-main {
+                font-size: 1.5em;
+            }
+
+            .surprise-title-name {
+                font-size: 2em;
+            }
+
+            .detail-item {
+                margin: 15px 0;
+                padding: 15px;
+            }
+
+            .detail-icon {
+                font-size: 1.8em;
+            }
+
+            .detail-value {
+                font-size: 1.1em;
+            }
+
+            .contract-section h2 {
+                font-size: 2em;
+            }
+
+            .love-counter {
+                padding: 20px 15px;
+            }
+
+            .counter-stats {
+                gap: 10px;
+            }
+
+            .counter-item {
+                padding: 12px 15px;
+                min-width: 65px;
+            }
+
+            .counter-number {
+                font-size: 1.5em;
+            }
+
+            .kiss-counter {
+                font-size: 1em;
+                padding: 12px 20px;
+            }
+
+            .contract-box {
+                padding: 20px 15px;
+            }
+
+            .contract-checkbox {
+                font-size: 1em;
+                margin-bottom: 12px;
+            }
+
+            .sign-contract-btn {
+                padding: 18px 40px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background effects -->
+    <div class="wave-bg"></div>
+    <div class="twinkling-stars" id="starsContainer"></div>
+    <div class="floating-hearts" id="heartsContainer"></div>
+
+    <div class="container">
+        <!-- Secțiunea de scuze -->
+        <div class="section apology-section active" id="apologySection">
+            <div class="apology-content">
+                <h1 class="glitter-text">Îmi pare rău...</h1>
+                <div class="pink-heart parallax-heart">
+                    <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ff1493;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff0066;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="heartGlow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <path
+                            d="M100 170 C 100 170, 10 110, 10 50 C 10 25, 30 5, 55 5 C 75 5, 90 20, 100 35 C 110 20, 125 5, 145 5 C 170 5, 190 25, 190 50 C 190 110, 100 170, 100 170 Z"
+                            fill="url(#heartGradient)" filter="url(#heartGlow)" />
+                    </svg>
+                </div>
+                <div class="apology-text">
+                    <p>Dragă,</p>
+                    <p>Vreau să îmi cer scuze pentru modul în care m-am comportat în ultimele zile. Știu că am fost un
+                        nesimțit și nu am fost fair cu tine.</p>
+                    <p>Nu am nicio scuză pentru comportamentul meu, dar vreau să știi că îmi pasă de tine și regret
+                        profund tot ce s-a întâmplat.</p>
+                    <p>Sper că vei accepta scuzele mele și că îmi vei da o șansă să fac lucrurile să fie mai bine.</p>
+                    <p>Cu dragoste și regret...</p>
+                </div>
+                <button class="enter-btn magnetic-btn" onclick="showQuestion()">Intră în site</button>
+            </div>
+        </div>
+
+        <!-- Secțiunea de întrebare -->
+        <div class="section question-section" id="questionSection">
+            <h2 class="neon-text">Vrei să fii Valentine's meu?</h2>
+            <div class="pink-rose">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                        fill="url(#roseGradient)" />
+                    <defs>
+                        <linearGradient id="roseGradient" x1="2" y1="3" x2="22" y2="21.35"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#ffb6c1" />
+                            <stop offset="50%" stop-color="#ff69b4" />
+                            <stop offset="100%" stop-color="#ff1493" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <p style="color: #ff69b4; font-size: 1.1em; margin-top: 20px;">Am o surpriză pentru tine...</p>
+            <div class="buttons" id="questionButtons">
+                <button class="btn btn-yes magnetic-btn" onclick="showCats()">DA!</button>
+                <button class="btn btn-no" id="noButton" onclick="showAngryCat()">NU</button>
+            </div>
+        </div>
+
+        <!-- Secțiunea cu pisici -->
+        <div class="section cats-section" id="catsSection">
+            <h2 class="glitter-text">Stiaaaaam eu ca nu ma poti refuza!</h2>
+            <p style="color: #ff69b4; font-size: 1.1em; margin-bottom: 20px;">EU:</p>
+            <div class="cats-container">
+                <div class="cat-box">
+                    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Cute Cat" class="cat-gif">
+                </div>
+                <div class="cat-box">
+                    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Happy Cat" class="cat-gif">
+                </div>
+                <div class="cat-box">
+                    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Dancing Cat"
+                        class="cat-gif">
+                </div>
+            </div>
+            <button class="continue-btn magnetic-btn" onclick="showQuiz()">Continuă către chestionar</button>
+        </div>
+
+        <!-- Chestionar -->
+        <div class="section quiz-section" id="quizSection">
+            <h2 class="neon-text">Chestionar Special</h2>
+            <div id="quizContent">
+                <div class="quiz-question">
+                    <h3>1. Care este momentul nostru preferat împreună?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this)">Primele întâlniri</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Călătoriile împreună</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Serile liniștite</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Toate momentele</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>2. Ce super-puteri crezi că avem împreună?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this)">Facem mereu haz de necaz</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Ne completam reciproc</div>
+                        <div class="quiz-option" onclick="selectOption(this)">THE NEURON :))))</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Ca putem sta fara tlf fara sa i simtim
+                            lipsa</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>3. Dacă am fi într-un film, ce gen ar fi?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this)">Comedie romantică</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Aventură și acțiune non-stop</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Documentar despre haosul nostru</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Fantasy cu magie </div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>4. Ce amintire cu mine te face să râzi cel mai tare?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this)">Cand imi dau talentele si nu mi iese</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Aventurile noastre neplanificate</div>
+                        <div class="quiz-option" onclick="selectOption(this)">BARFA</div>
+                        <div class="quiz-option" onclick="selectOption(this)">Toate, mereu râdem împreună</div>
+                    </div>
+                </div>
+
+                <button class="submit-quiz-btn magnetic-btn" onclick="submitQuiz()">Trimite la burusuc
+                    raspunsurile!</button>
+            </div>
+        </div>
+
+        <!-- Contract de iubire -->
+        <div class="section contract-section" id="contractSection">
+            <h2 class="glitter-text">💕 Contract de Iubire 💕</h2>
+            <div class="love-counter">
+                <div class="counter-title">Suntem împreună de:</div>
+                <div class="counter-stats">
+                    <div class="counter-item">
+                        <span class="counter-number" id="yearsCounter">1</span>
+                        <span class="counter-label">an</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="daysCounter">305</span>
+                        <span class="counter-label">zile</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number" id="hoursCounter">16,080</span>
+                        <span class="counter-label">ore</span>
+                    </div>
+                </div>
+                <div class="kiss-counter">
+                    <span class="kiss-emoji">💋</span>
+                    <span class="kiss-number">~200,000,000</span>
+                    <span class="kiss-label">pupici estimați</span>
+                </div>
+            </div>
+
+            <div class="contract-box">
+                <h3>Promisiuni:</h3>
+                <label class="contract-checkbox">
+                    <input type="checkbox" checked disabled>
+                    <span class="checkmark">☑</span>
+                    <span class="promise-text">Promit să te iubesc in orice moment!</span>
+                </label>
+                <label class="contract-checkbox">
+                    <input type="checkbox" checked disabled>
+                    <span class="checkmark">☑</span>
+                    <span class="promise-text">Promit să-ți dau ultima felie de pizza</span>
+                </label>
+                <label class="contract-checkbox">
+                    <input type="checkbox" checked disabled>
+                    <span class="checkmark">☑</span>
+                    <span class="promise-text">Promit să te fac să zâmbești în fiecare zi</span>
+                </label>
+                <label class="contract-checkbox">
+                    <input type="checkbox" checked disabled>
+                    <span class="checkmark">☑</span>
+                    <span class="promise-text">Promit să fiu mereu alături de tine</span>
+                </label>
+            </div>
+
+            <button class="sign-contract-btn magnetic-btn" onclick="submitContract()">
+                💋 Semnează cu un pupic
+            </button>
+        </div>
+
+        <!-- Mesaj final - doar text, fără fundă -->
+        <div class="section final-message" id="finalSection">
+            <h2 class="neon-text">Mulțumesc!</h2>
+            <p>Îți mulțumesc că ai acceptat să fii Valentine's meu! Promit să fac tot ce pot să te fac fericită și să
+                fiu o persoană mai bună pentru tine.</p>
+            <p class="final-love">Te iubesc!</p>
+        </div>
+
+        <!-- Secțiunea Surpriză -->
+        <div class="section surprise-section" id="surpriseSection">
+            <div class="surprise-title-main glitter-text">AM O SURPRIZĂ</div>
+            <div class="surprise-title-name neon-text">PENTRU TINE BURSUCINA</div>
+            <div class="click-ribbon-text">APASĂ PE FUNDA!</div>
+
+            <div class="big-ribbon" onclick="revealSurpriseDetails()">
+                <span class="big-ribbon-icon">🎀</span>
+            </div>
+
+            <div class="surprise-details" id="surpriseDetails">
+                <div class="detail-item">
+                    <span class="detail-icon">👗</span>
+                    <div class="detail-content">
+                        <div class="detail-label">Outfit</div>
+                        <div class="detail-value">Cum dorești tu - You're the best oricum!</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-content">
+                        <div class="detail-label">Locație</div>
+                        <div class="detail-value">🔒 ASCUNSĂ (Aflii cand ne vedem hihihi)</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">🕐</span>
+                    <div class="detail-content">
+                        <div class="detail-label">Ora</div>
+                        <div class="detail-value">4:30 PM</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-icon">🎀</span>
+                    <div class="detail-content">
+                        <div class="detail-label">Surpriză</div>
+                        <div class="detail-value">Pregătește-te pentru ceva de colectie impreuna!</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="final-love" style="font-size: 2.2em;">Abia aștept să te văd!</p>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Pisica trista Popup -->
+    <div class="angry-cat-popup" id="angryCatPopup">
+        <img src="https://media.giphy.com/media/5i7umUqAOYYEw/giphy.gif" alt="Sad Crying Cat" class="angry-cat-img">
+        <div class="angry-cat-text">Plange Liuta daca apesi NU... 😿</div>
+        <button class="btn btn-no" onclick="showSikePopup()">NU</button>
+    </div>
+
+    <!-- Sike Popup -->
+    <div class="sike-popup" id="sikePopup">
+        <div class="sike-text">SIKE! 💕</div>
+        <div class="sike-subtext">Eroare la buton hehe!</div>
+    </div>
+
+    <script>
+        let noCount = 0;
+
+        function showQuestion() {
+            document.getElementById('apologySection').classList.remove('active');
+            const questionSection = document.getElementById('questionSection');
+            questionSection.classList.add('active');
+            questionSection.classList.add('zoom-blur');
+        }
+
+        function showAngryCat() {
+            noCount++;
+            document.getElementById('overlay').classList.add('show');
+            document.getElementById('angryCatPopup').classList.add('show');
+        }
+
+        function showSikePopup() {
+            document.getElementById('angryCatPopup').classList.remove('show');
+            const sikePopup = document.getElementById('sikePopup');
+            sikePopup.classList.add('glitch-effect');
+            sikePopup.classList.add('show');
+
+            setTimeout(() => {
+                sikePopup.classList.remove('glitch-effect');
+            }, 300);
+
+            setTimeout(() => {
+                sikePopup.classList.remove('show');
+                document.getElementById('overlay').classList.remove('show');
+
+                // Elimina butonul NU si lasa doar DA
+                const noBtn = document.getElementById('noButton');
+                if (noBtn) {
+                    noBtn.style.display = 'none';
+                }
+
+                // Centreaza butonul DA
+                const buttonsDiv = document.getElementById('questionButtons');
+                buttonsDiv.style.justifyContent = 'center';
+            }, 2000);
+        }
+
+        function showCats() {
+            document.getElementById('questionSection').classList.remove('active');
+            const catsSection = document.getElementById('catsSection');
+            catsSection.classList.add('active');
+            catsSection.classList.add('zoom-blur');
+            createConfetti();
+        }
+
+        function showQuiz() {
+            document.getElementById('catsSection').classList.remove('active');
+            const quizSection = document.getElementById('quizSection');
+            quizSection.classList.add('active');
+            quizSection.classList.add('zoom-blur');
+        }
+
+        function selectOption(element) {
+            const parent = element.parentElement;
+            const options = parent.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function submitQuiz() {
+            document.getElementById('quizSection').classList.remove('active');
+            const contractSection = document.getElementById('contractSection');
+            contractSection.classList.add('active');
+            contractSection.classList.add('zoom-blur');
+            startCounter();
+        }
+
+        function startCounter() {
+            // Counter static - valorile sunt deja setate în HTML
+            // Aici putem adăuga animații dacă dorim în viitor
+        }
+
+        function submitContract() {
+            document.getElementById('contractSection').classList.remove('active');
+            const finalSection = document.getElementById('finalSection');
+            finalSection.style.display = 'block';
+            finalSection.classList.add('active');
+            finalSection.classList.add('zoom-blur');
+
+            // După 800ms, trece automat la surpriză
+            setTimeout(() => {
+                document.getElementById('finalSection').classList.remove('active');
+                const surpriseSection = document.getElementById('surpriseSection');
+                surpriseSection.classList.add('active');
+                surpriseSection.classList.add('zoom-blur');
+                createConfetti();
+            }, 800);
+        }
+
+        function revealSurpriseDetails() {
+            document.getElementById('surpriseDetails').classList.add('show');
+            document.querySelector('.big-ribbon').style.display = 'none';
+            document.querySelector('.click-ribbon-text').style.display = 'none';
+            createConfetti();
+        }
+
+        function createConfetti() {
+            const colors = ['#ff69b4', '#ff1493', '#ffb6c1', '#ffc0cb', '#ff0066', '#ff3389', '#ff5cad', '#ff85c1'];
+            const shapes = ['circle', 'square', 'triangle', 'heart'];
+
+            for (let i = 0; i < 60; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-improved';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                const size = Math.random() * 15 + 8 + 'px';
+                confetti.style.width = size;
+                confetti.style.height = size;
+
+                if (shape === 'circle') {
+                    confetti.style.borderRadius = '50%';
+                } else if (shape === 'triangle') {
+                    confetti.style.width = '0';
+                    confetti.style.height = '0';
+                    confetti.style.borderLeft = '8px solid transparent';
+                    confetti.style.borderRight = '8px solid transparent';
+                    confetti.style.borderBottom = '15px solid ' + colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.background = 'transparent';
+                } else if (shape === 'heart') {
+                    confetti.innerHTML = '💕';
+                    confetti.style.background = 'transparent';
+                    confetti.style.fontSize = '20px';
+                }
+
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Inimi plutind
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heartEmojis = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘'];
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 10000);
+            }, 800);
+        }
+
+        // Stele sclipitoare
+        function createTwinklingStars() {
+            const starsContainer = document.getElementById('starsContainer');
+
+            for (let i = 0; i < 30; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Particule la click
+        function createClickParticles(x, y) {
+            const colors = ['#ff1493', '#ff69b4', '#ffb6c1', '#ffc0cb', '#ff0066'];
+            const particleCount = 12;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'click-particle';
+                particle.innerHTML = ['💕', '💖', '✨', '⭐'][Math.floor(Math.random() * 4)];
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.fontSize = (Math.random() * 15 + 10) + 'px';
+
+                const angle = (Math.PI * 2 * i) / particleCount;
+                const velocity = Math.random() * 100 + 50;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        // Butoane magnetice - efect subtil care nu blocheaza click-ul
+        function initMagneticButtons() {
+            const buttons = document.querySelectorAll('.btn, .enter-btn, .continue-btn, .submit-quiz-btn, .sign-contract-btn');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function () {
+                    btn.style.transition = 'transform 0.3s ease';
+                    btn.style.transform = 'scale(1.08)';
+                });
+
+                btn.addEventListener('mouseleave', function () {
+                    btn.style.transform = 'scale(1)';
+                });
+
+                // Ne asiguram ca click-ul functioneaza
+                btn.style.cursor = 'pointer';
+                btn.style.position = 'relative';
+                btn.style.zIndex = '10';
+            });
+        }
+
+        // Tilt 3D pentru container
+        function init3DTilt() {
+            const container = document.querySelector('.container');
+
+            document.addEventListener('mousemove', function (e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+                container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+        }
+
+        // Efect typewriter pentru titluri
+        function typeWriterEffect(element, text, speed = 100) {
+            element.innerHTML = '';
+            element.classList.add('typewriter-text');
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        // Glitch effect pentru sike popup
+        function showGlitchSike() {
+            const sikePopup = document.getElementById('sikePopup');
+            sikePopup.classList.add('glitch-effect');
+            sikePopup.classList.add('show');
+
+            setTimeout(() => {
+                sikePopup.classList.remove('glitch-effect');
+            }, 300);
+        }
+
+        // Initializare toate animațiile
+        document.addEventListener('DOMContentLoaded', function () {
+            createFloatingHearts();
+            createTwinklingStars();
+            initMagneticButtons();
+            // init3DTilt(); // Decomentezi dacă vrei efect 3D
+
+            // Click particles
+            document.addEventListener('click', function (e) {
+                createClickParticles(e.clientX, e.clientY);
+            });
+        });
+    </script>
+</body>
+
+</html>
